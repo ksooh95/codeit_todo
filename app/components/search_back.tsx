@@ -2,11 +2,9 @@
 
 import React, { useState } from 'react';
 import { ApiResponse, SearchProps } from '@/app/model/todo';
-import { useRouter } from 'next/navigation';
 
 const Search: React.FC<SearchProps> = ({ setItems }) => {
     const [newItem, setNewItem] = useState<string>('');
-    const router = useRouter();
 
     const AddItem = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/soohwan/items`, {

@@ -19,11 +19,12 @@
     --font-weight-bold: 800;
 }
 
+/* reset.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: url('/c355.png') 2 2, auto;
+    font-family: 'NanumSquare' !important;
 }
 
 :root {
@@ -91,6 +92,8 @@ body,
 html {
     background: var(--slate100-color);
 }
+/* //reset.css */
+
 /* 공통 컨테이너 */
 .container {
     max-width: 1248px;
@@ -115,4 +118,103 @@ html {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+/* 메인 검색바 */
+.main {
+    padding-bottom: 300px;
+}
+.main .search {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.main .search .search_bar {
+    display: block;
+    width: 90%;
+    max-width: 1000px;
+}
+.main .search .search_bar input {
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 100%;
+    border: 1px solid #333;
+    box-shadow: 5px 6px 0px #333;
+    outline: none;
+}
+
+.main .search button {
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 13.5%;
+    border: 1px solid #333;
+    box-shadow: 5px 6px 0px #333;
+    outline: none;
+    background: var(--slate200-color);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+/* 메인 todo, done */
+.main .todo_done {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.main .todo_done .td_logo {
+    max-width: 100px;
+    display: block;
+}
+.main .todo_done .td_logo img {
+    width: 100%;
+    display: block;
+}
+.main .todo_done .todo {
+    width: 49%;
+}
+.main .todo_done .done {
+    width: 49%;
+}
+
+/* 체크리스트 */
+.check_list {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 95%;
+    border: 2px solid #333;
+    gap: 16px;
+}
+.check_list.completeTrue {
+    background: var(--violet100-color);
+    text-decoration: line-through;
+}
+.check_list input {
+    display: none;
+}
+.check_list input + label em {
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+}
+.check_list input + label em img {
+    width: 100%;
+    height: 100%;
+}
+.check_list a {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
 }
