@@ -47,7 +47,7 @@ const CheckList: React.FC<CheckListProps> = ({ item, setItems }) => {
                     {item.isCompleted === false ? <img src="/ck_off.png" alt="" /> : <img src="/ck_on.png" alt="" />}
                 </em>
             </label>
-            <Link href="/">{item.name}</Link>
+            <Link href={`/detail/${item.id}`}>{item.name}</Link>
         </div>
     );
 };

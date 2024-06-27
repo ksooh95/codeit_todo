@@ -32,17 +32,33 @@ export default function Main() {
                         <div className="td_logo">
                             <img src="/todo.png" alt="" />
                         </div>
-                        {todoItems.map((item, i) => (
-                            <CheckList item={item} key={i} setItems={setItems} />
-                        ))}
+                        {todoItems.length > 0 ? (
+                            todoItems.map((item, i) => <CheckList item={item} key={i} setItems={setItems} />)
+                        ) : (
+                            <div className="empty_img">
+                                <img src="/empty_todo_small.png" alt="" />
+                                <p>
+                                    할 일이 없어요. <br />
+                                    TODO를 새롭게 추가해주세요!
+                                </p>
+                            </div>
+                        )}
                     </div>
                     <div className="done">
                         <div className="td_logo">
                             <img src="/done.png" alt="" />
                         </div>
-                        {doneItems.map((item, i) => (
-                            <CheckList item={item} key={i} setItems={setItems} />
-                        ))}
+                        {doneItems.length > 0 ? (
+                            doneItems.map((item, i) => <CheckList item={item} key={i} setItems={setItems} />)
+                        ) : (
+                            <div className="empty_img">
+                                <img src="/empty_done_small.png" alt="" />
+                                <p>
+                                    아직 다 한 일이 없어요. <br />
+                                    해야 할 일을 체크해보세요!
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

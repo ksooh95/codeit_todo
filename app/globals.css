@@ -6,6 +6,7 @@
     --slate300-color: #cbd5e1;
     --slate200-color: #e2e8f0;
     --slate100-color: #f1f5f9;
+    --slate50-color: #f8fafc;
     --violet600-color: #7c3aed;
     --violet100-color: #ede9fe;
     --rose500-color: #f43f5e;
@@ -103,6 +104,16 @@ html {
     box-sizing: border-box;
     margin: 0 auto;
 }
+.detail_container {
+    max-width: 1230px;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background: #fff;
+    padding: 15px 100px;
+}
 
 /* 헤더 */
 .header {
@@ -173,6 +184,19 @@ html {
     max-width: 100px;
     display: block;
 }
+.main .todo_done .empty_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 64px;
+}
+.main .todo_done .empty_img p {
+    font-size: var(--font-size-small);
+    color: var(--slate400-color);
+    font-weight: var(--font-weight-medium);
+}
 .main .todo_done .td_logo img {
     width: 100%;
     display: block;
@@ -217,4 +241,149 @@ html {
 .check_list a {
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-regular);
+}
+
+/* 디테일페이지 체크리스트 */
+.checklist_detail {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 100%;
+    border: 2px solid #333;
+    gap: 16px;
+}
+.checklist_detail input {
+    display: none;
+}
+.checklist_detail input + label {
+    max-width: 32px;
+    max-height: 32px;
+}
+.checklist_detail input + label em img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.checklist_detail p {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-medium);
+    text-decoration: underline;
+}
+
+/* 디테일페이지 컨텐츠 */
+
+.detail_content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.detail_content .img_upload {
+    border-radius: 20px;
+    border: 2px dotted var(--slate300-color);
+    width: 38%;
+    height: 311px;
+    position: relative;
+    overflow: hidden;
+}
+.detail_content .img_upload .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--slate50-color);
+}
+.detail_content .img_upload .thumb img {
+}
+.detail_content .img_upload input {
+    display: none;
+}
+.detail_content .img_upload input + label {
+    max-width: 64px;
+    max-height: 64px;
+    display: block;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+.detail_content .img_upload input + label em {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.detail_content .img_upload input + label em img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.detail_content .memo_box {
+    width: 60%;
+    height: 311px;
+    background-image: url('/memo_bg.png');
+    background-size: cover;
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+.detail_content .memo_box .title {
+    display: block;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-medium);
+    color: var(--amber800-color);
+}
+.detail_content .memo_box textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    resize: none;
+    margin-top: 15px;
+    height: 250px;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    padding: 15px;
+}
+.detail_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+.detail_btn button {
+    display: block;
+    padding: 17px 15px 15px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 25px;
+    box-shadow: 4px 4px 0px #333;
+    gap: 5px;
+    width: 18%;
+    font-weight: var(--font-size-medium);
+    font-size: var(--font-size-small);
+    cursor: pointer;
+}
+.detail_btn button img {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.detail_btn .edit_btn {
+    background: var(--lime300-color);
+}
+.detail_btn .delete_btn {
+    background: var(--rose500-color);
+    color: #fff;
 }

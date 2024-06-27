@@ -1,7 +1,10 @@
 export type ApiResponse = {
     id: number;
+    imageUrl: any;
     isCompleted: boolean;
+    memo: any;
     name: string;
+    tenantId: string;
 };
 export type SearchProps = {
     setItems: React.Dispatch<React.SetStateAction<ApiResponse[]>>;
@@ -10,4 +13,8 @@ export type SearchProps = {
 export type CheckListProps = {
     item: ApiResponse;
     setItems: React.Dispatch<React.SetStateAction<ApiResponse[]>>;
+};
+
+export type CheckListDetailProps = {
+    detail?: ApiResponse;
 };
