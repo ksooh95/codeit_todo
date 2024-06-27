@@ -256,22 +256,24 @@ html {
     border: 2px solid #333;
     gap: 16px;
 }
-.checklist_detail input {
+.checklist_detail input[type='checkbox'] {
     display: none;
 }
-.checklist_detail input + label {
+.checklist_detail input[type='checkbox'] + label {
     max-width: 32px;
     max-height: 32px;
 }
-.checklist_detail input + label em img {
+.checklist_detail input[type='checkbox'] + label em img {
     display: block;
     width: 100%;
     height: 100%;
 }
-.checklist_detail p {
+.checklist_detail input[type='text'] {
     font-size: var(--font-size-large);
     font-weight: var(--font-weight-medium);
     text-decoration: underline;
+    border: none;
+    outline: none;
 }
 
 /* 디테일페이지 컨텐츠 */
@@ -379,8 +381,11 @@ html {
     height: 16px;
     display: block;
 }
-
 .detail_btn .edit_btn {
+    background: var(--slate200-color);
+}
+.detail_btn .edit_btn:hover {
+    transition: 0.3s ease all;
     background: var(--lime300-color);
 }
 .detail_btn .delete_btn {

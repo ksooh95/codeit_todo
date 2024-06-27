@@ -2,8 +2,8 @@ export type ApiResponse = {
     id: number;
     imageUrl: any;
     isCompleted: boolean;
-    memo: any;
-    name: string;
+    memo: string | number;
+    name: string | number;
     tenantId: string;
 };
 export type SearchProps = {
@@ -17,4 +17,5 @@ export type CheckListProps = {
 
 export type CheckListDetailProps = {
     detail?: ApiResponse;
+    handlerCheckListDetailName: any;
 };
