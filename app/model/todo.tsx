@@ -12,10 +12,14 @@ export type SearchProps = {
 
 export type CheckListProps = {
     item: ApiResponse;
-    setItems: React.Dispatch<React.SetStateAction<ApiResponse[]>>;
+    // setItems: React.Dispatch<React.SetStateAction<ApiResponse[]>>;
+    handlerToggleComplete: (id: number, isCompleted: boolean) => void;
+    // handlerToggleComplete: any;
 };
 
 export type CheckListDetailProps = {
     detail?: ApiResponse;
     handlerCheckListDetailName: any;
+    handlerCheckListDetailIsCompleted: any;
+    isCompleted: boolean;
 };

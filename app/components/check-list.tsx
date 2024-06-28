@@ -4,42 +4,23 @@ import React, { useEffect, useState } from 'react';
 import { CheckListProps, ApiResponse } from '@/app/model/todo';
 import Link from 'next/link';
 
-// const CheckList: React.FC<CheckListProps> = ({ item }: { item: any }) => {
-const CheckList: React.FC<CheckListProps> = ({ item, setItems }) => {
+const CheckList: React.FC<CheckListProps> = ({ item, handlerToggleComplete }) => {
     const [isCompleted, setIsCompleted] = useState(item.isCompleted);
     useEffect(() => {
         setIsCompleted(item.isCompleted);
     }, [item.isCompleted]);
 
-    const updateItem = () => {
-        const updatedItem = { ...item, isCompleted: !item.isCompleted };
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/soohwan/items/${item.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ isCompleted: updatedItem.isCompleted }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setIsCompleted(updatedItem.isCompleted);
-            });
-
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/soohwan/items`, {
-            method: 'GET',
-        })
-            .then((res) => res.json())
-            .then((data) => setItems(data));
+    const handleCheckboxChange = () => {
+        handlerToggleComplete(item.id, item.isCompleted);
     };
+
     return (
         <div className={'check_list ' + (isCompleted ? 'completeTrue' : 'completeFalse')}>
             <input
                 type="checkbox"
                 name="check"
                 id={`check-${item.id}`}
-                onChange={() => {
-                    updateItem();
-                }}
+                onChange={handleCheckboxChange}
                 checked={isCompleted}
             />
             <label htmlFor={`check-${item.id}`}>

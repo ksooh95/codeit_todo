@@ -256,12 +256,17 @@ html {
     border: 2px solid #333;
     gap: 16px;
 }
+.checklist_detail.completeTrue {
+    background: var(--violet100-color);
+}
+
 .checklist_detail input[type='checkbox'] {
     display: none;
 }
 .checklist_detail input[type='checkbox'] + label {
     max-width: 32px;
     max-height: 32px;
+    cursor: pointer;
 }
 .checklist_detail input[type='checkbox'] + label em img {
     display: block;
@@ -274,6 +279,9 @@ html {
     text-decoration: underline;
     border: none;
     outline: none;
+}
+.checklist_detail.completeTrue input[type='text'] {
+    background: var(--violet100-color);
 }
 
 /* 디테일페이지 컨텐츠 */
@@ -301,8 +309,6 @@ html {
     height: 100%;
     background: var(--slate50-color);
 }
-.detail_content .img_upload .thumb img {
-}
 .detail_content .img_upload input {
     display: none;
 }
@@ -313,6 +319,7 @@ html {
     position: absolute;
     bottom: 16px;
     right: 16px;
+    cursor: pointer;
 }
 .detail_content .img_upload input + label em {
     display: block;

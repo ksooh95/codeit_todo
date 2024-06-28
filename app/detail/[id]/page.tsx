@@ -12,8 +12,8 @@ export default function Detail() {
     const id: string = params.id.toString();
     const [detail, setDetail] = useState<ApiResponse>();
     const [name, setName] = useState<ApiResponse>();
-    const [isCompleted, setIsCompleted] = useState<ApiResponse>();
-    const [memo, setMemo] = useState<string | number>('');
+    const [isCompleted, setIsCompleted] = useState<ApiResponse>(false);
+    const [memo, setMemo] = useState<string | number>(detail?.memo);
     const [imgUrl, setImgUrl] = useState<string>('/img_thumb.png');
 
     useEffect(() => {
@@ -23,16 +23,23 @@ export default function Detail() {
             .then((res) => res.json())
             .then((data: ApiResponse) => {
                 setDetail(data);
+                setIsCompleted(data.isCompleted);
                 if (data.imageUrl) {
                     setImgUrl(data.imageUrl); // 서버에서 가져온 이미지 URL을 설정
                 }
             });
     }, [id]);
 
+    console.log(detail);
+    console.log(isCompleted);
+
     //체크리스트 제목 변경하기
     const handlerCheckListDetailName = (e: any) => {
         setName(e.target.value);
-        console.log('name 바뀌는거 : ', name);
+    };
+    //체크리스트 체크상태 변경하기
+    const handlerCheckListDetailIsCompleted = (e: any) => {
+        setIsCompleted(!isCompleted);
     };
 
     //이미지 올리기
@@ -106,7 +113,12 @@ export default function Detail() {
     return (
         <div className="detail">
             <div className="detail_container">
-                <CheckListDetail detail={detail} handlerCheckListDetailName={handlerCheckListDetailName} />
+                <CheckListDetail
+                    detail={detail}
+                    handlerCheckListDetailName={handlerCheckListDetailName}
+                    isCompleted={isCompleted}
+                    handlerCheckListDetailIsCompleted={handlerCheckListDetailIsCompleted}
+                />
                 <div className="detail_content">
                     <div className="img_upload">
                         <div className="thumb">
@@ -131,9 +143,11 @@ export default function Detail() {
                             name="memo_textarea"
                             id="memo_textarea"
                             defaultValue={detail?.memo}
+                            value={memo}
                             onChange={(e) => {
                                 setMemo(e.target.value);
                             }}
+                            placeholder='메모를 작성해주세요'
                         ></textarea>
                     </div>
                 </div>

@@ -18,6 +18,22 @@ export default function Main() {
             });
     }, []);
 
+    //todo <-> done 상태를 바로바로 확인하기위해서 추가한 함수
+    const handlerToggleComplete = (id: number, isCompleted: boolean) => {
+        const updatedItems = items.map((a) => (a.id === id ? { ...a, isCompleted: !isCompleted } : a));
+        setItems(updatedItems);
+
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/soohwan/items/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ isCompleted: !isCompleted }),
+        }).catch((err) => {
+            console.log('err :', err);
+        });
+    };
+
     const todoItems: ApiResponse[] = items.filter((item) => !item.isCompleted); // 체크안된 todoList
     const doneItems: ApiResponse[] = items.filter((item) => item.isCompleted); // 체크된 doneList
 
@@ -33,7 +49,9 @@ export default function Main() {
                             <img src="/todo.png" alt="" />
                         </div>
                         {todoItems.length > 0 ? (
-                            todoItems.map((item, i) => <CheckList item={item} key={i} setItems={setItems} />)
+                            todoItems.map((item, i) => (
+                                <CheckList item={item} key={i} handlerToggleComplete={handlerToggleComplete} />
+                            ))
                         ) : (
                             <div className="empty_img">
                                 <img src="/empty_todo_small.png" alt="" />
@@ -49,7 +67,9 @@ export default function Main() {
                             <img src="/done.png" alt="" />
                         </div>
                         {doneItems.length > 0 ? (
-                            doneItems.map((item, i) => <CheckList item={item} key={i} setItems={setItems} />)
+                            doneItems.map((item, i) => (
+                                <CheckList item={item} key={i} handlerToggleComplete={handlerToggleComplete} />
+                            ))
                         ) : (
                             <div className="empty_img">
                                 <img src="/empty_done_small.png" alt="" />
