@@ -11,9 +11,9 @@ export default function Detail() {
     const router = useRouter();
     const id: string = params.id.toString();
     const [detail, setDetail] = useState<ApiResponse>();
-    const [name, setName] = useState<ApiResponse>();
-    const [isCompleted, setIsCompleted] = useState<ApiResponse>(false);
-    const [memo, setMemo] = useState<string | number>(detail?.memo);
+    const [name, setName] = useState<string | number>();
+    const [isCompleted, setIsCompleted] = useState<boolean>(false);
+    const [memo, setMemo] = useState<string | number>('');
     const [imgUrl, setImgUrl] = useState<string>('/img_thumb.png');
 
     useEffect(() => {
@@ -147,7 +147,7 @@ export default function Detail() {
                             onChange={(e) => {
                                 setMemo(e.target.value);
                             }}
-                            placeholder='메모를 작성해주세요'
+                            placeholder="메모를 작성해주세요"
                         ></textarea>
                     </div>
                 </div>
