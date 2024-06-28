@@ -45,7 +45,7 @@ const Search: React.FC<SearchProps> = ({ setItems }) => {
                 />
             </div>
             <button type="button" onClick={AddItem}>
-                + 추가하기
+                + <span>추가하기</span>
             </button>
         </div>
     );

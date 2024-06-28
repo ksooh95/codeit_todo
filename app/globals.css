@@ -91,7 +91,7 @@ select {
 
 body,
 html {
-    background: var(--slate100-color);
+    background: var(--slate50-color);
 }
 /* //reset.css */
 
@@ -119,6 +119,7 @@ html {
 .header {
     padding: 10px 0;
     background: #fff;
+    border-bottom: 1px solid var(--slate200-color);
 }
 .header .logo {
     display: block;
@@ -156,6 +157,7 @@ html {
     border: 1px solid #333;
     box-shadow: 5px 6px 0px #333;
     outline: none;
+    background: var(--slate100-color);
 }
 
 .main .search button {
@@ -171,6 +173,11 @@ html {
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-medium);
     cursor: pointer;
+}
+.main .search button:hover {
+    transition: 0.3s ease all;
+    background: var(--violet600-color);
+    color: #fff;
 }
 
 /* 메인 todo, done */
@@ -256,6 +263,18 @@ html {
     border: 2px solid #333;
     gap: 16px;
 }
+.checklist_detail .ckd_ck {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.checklist_detail .ckd_input {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .checklist_detail.completeTrue {
     background: var(--violet100-color);
 }
@@ -270,8 +289,8 @@ html {
 }
 .checklist_detail input[type='checkbox'] + label em img {
     display: block;
-    width: 100%;
-    height: 100%;
+    max-width: 32px;
+    max-height: 32px;
 }
 .checklist_detail input[type='text'] {
     font-size: var(--font-size-large);
@@ -279,6 +298,7 @@ html {
     text-decoration: underline;
     border: none;
     outline: none;
+    width: 100%;
 }
 .checklist_detail.completeTrue input[type='text'] {
     background: var(--violet100-color);
@@ -313,13 +333,25 @@ html {
     display: none;
 }
 .detail_content .img_upload input + label {
-    max-width: 64px;
-    max-height: 64px;
+    width: 64px;
+    height: 64px;
     display: block;
     position: absolute;
     bottom: 16px;
     right: 16px;
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    border: 2px solid #333;
+}
+.detail_content .img_upload input + label em .pen_circle img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .detail_content .img_upload input + label em {
     display: block;
@@ -398,4 +430,86 @@ html {
 .detail_btn .delete_btn {
     background: var(--rose500-color);
     color: #fff;
+}
+
+.pc_logo {
+    display: block;
+}
+.mo_logo {
+    display: none;
+}
+
+/* 태블릿 사이즈 반응형  */
+@media (max-width: 770px) {
+    .main .search .search_bar input {
+        width: 93%;
+    }
+    .main .search button {
+        width: 20%;
+    }
+    .main .todo_done {
+        display: block;
+        width: 100%;
+    }
+    .main .todo_done .todo {
+        width: 100%;
+    }
+    .main .todo_done .done {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .detail_container {
+        padding: 15px 24px 150px 24px;
+        height: auto;
+    }
+    .detail_content {
+        display: block;
+    }
+    .detail_content .img_upload {
+        width: 100%;
+    }
+    .detail_content .memo_box {
+        width: 100%;
+        margin-top: 24px;
+    }
+    .detail_btn {
+        justify-content: center;
+    }
+    .detail_btn button {
+        width: 25%;
+    }
+}
+
+/* 모바일 사이즈 반응형  */
+@media (max-width: 380px) {
+    .header .logo {
+        max-width: 71px;
+        max-height: 40px;
+    }
+    .mo_logo {
+        display: block;
+    }
+    .pc_logo {
+        display: none;
+    }
+    .main .search button {
+        font-size: 36px;
+        padding: 3px;
+        border-radius: 25px;
+        box-shadow: 3px 3px 0px #333;
+        font-weight: var(--font-weight-regular);
+    }
+    .main .search button span {
+        display: none;
+    }
+    .main .search .search_bar input {
+        box-shadow: 3px 3px 0px #333;
+    }
+    .container {
+        padding: 0 15px;
+    }
+    .detail_btn button {
+        width: 48%;
+    }
 }

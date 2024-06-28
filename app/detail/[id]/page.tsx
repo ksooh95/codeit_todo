@@ -132,9 +132,17 @@ export default function Detail() {
                             }}
                         />
                         <label htmlFor="img_input">
-                            <em>
-                                <img src="/plus_small_gray.png" alt="" />
-                            </em>
+                            {imgUrl === '/img_thumb.png' ? (
+                                <em>
+                                    <img src="/plus_small_gray.png" alt="" />
+                                </em>
+                            ) : (
+                                <em>
+                                    <div className="pen_circle">
+                                        <img src="/edit.png" alt="" />
+                                    </div>
+                                </em>
+                            )}
                         </label>
                     </div>
                     <div className="memo_box">
