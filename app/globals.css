@@ -395,6 +395,7 @@ html {
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-regular);
     padding: 15px;
+    outline: none;
 }
 .detail_btn {
     display: flex;

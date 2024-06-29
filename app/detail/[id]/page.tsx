@@ -149,7 +149,6 @@ export default function Detail() {
                             name="memo_textarea"
                             id="memo_textarea"
                             defaultValue={detail?.memo}
-                            value={detail?.memo}
                             onChange={(e) => {
                                 setMemo(e.target.value);
                             }}
