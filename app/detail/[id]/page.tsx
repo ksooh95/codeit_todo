@@ -23,6 +23,7 @@ export default function Detail() {
             .then((res) => res.json())
             .then((data: ApiResponse) => {
                 setDetail(data);
+                setMemo(data.memo);
                 setIsCompleted(data.isCompleted);
                 if (data.imageUrl) {
                     setImgUrl(data.imageUrl); // 서버에서 가져온 이미지 URL을 설정
@@ -151,7 +152,7 @@ export default function Detail() {
                             name="memo_textarea"
                             id="memo_textarea"
                             defaultValue={detail?.memo}
-                            value={memo}
+                            value={detail?.memo}
                             onChange={(e) => {
                                 setMemo(e.target.value);
                             }}
