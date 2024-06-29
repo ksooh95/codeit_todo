@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 프로젝트 소개
+Codeit 단기심화 과제 to-do
+간단한 할일과 이미지,메모 등을 저장하는 웹,앱 입니다.
+ - Next.js
+ - Typescript
 
-## Getting Started
+## 기능
+# 메인페이지
+- 상단의 input에서 할일을 작성하여, Enter 및 추가하기 버튼을 클릭하면 할 일이 추가됩니다.
+- 할일 목록과 완료된 목록을 따로 볼수있으며, 체크박스 클릭시 해야할일 <-> 완료 목록을 오갈수있습니다.
+- 제목 클릭시 상세페이지로 이동됩니다.
 
-First, run the development server:
+# 상세페이지
+- 완료했는지 상태와 제목을 변경할수있습니다.
+- 이미지 ( 최대 1개 ) 업로드가 가능하고 미리보기가 가능합니다.
+- 메모를 작성할수있습니다.
+- 수정, 삭제 기능을 사용할수있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 디자인
+- PC환경 - 1920px
+- 태블릿환경 - 770px
+- 모바일환경 - 370px
+반응형으로 작업하였습니다.
