@@ -31,9 +31,6 @@ export default function Detail() {
             });
     }, [id]);
 
-    console.log(detail);
-    console.log(isCompleted);
-
     //체크리스트 제목 변경하기
     const handlerCheckListDetailName = (e: any) => {
         setName(e.target.value);

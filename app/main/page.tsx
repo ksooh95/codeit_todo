@@ -37,8 +37,6 @@ export default function Main() {
     const todoItems: ApiResponse[] = items.filter((item) => !item.isCompleted); // 체크안된 todoList
     const doneItems: ApiResponse[] = items.filter((item) => item.isCompleted); // 체크된 doneList
 
-    console.log('items :', items);
-
     return (
         <div className="main">
             <div className="container">

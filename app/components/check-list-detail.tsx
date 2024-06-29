@@ -10,7 +10,6 @@ const CheckListDetail: React.FC<CheckListDetailProps> = ({
     isCompleted,
 }) => {
     return (
-        // <div className="checklist_detail">
         <div className={'checklist_detail ' + (isCompleted ? 'completeTrue' : 'completeFalse')}>
             <div className="ckd_ck">
                 <input
