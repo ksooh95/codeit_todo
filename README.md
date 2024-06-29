@@ -4,6 +4,10 @@ Codeit 단기심화 과제 to-do
  - Next.js
  - Typescript
 
+## 배포완료
+주소 : https://codeit-todo.vercel.app/
+Deployment : Vercel
+
 # 헤더
 - 파비콘 적용 하였습니다.
 - 로고 클릭시 메인페이지로 이동하며, pc와 모바일 로고가 다르게 나타납니다.
@@ -22,6 +26,7 @@ Codeit 단기심화 과제 to-do
 - 수정, 삭제 기능을 사용할수있습니다.
 
 # 폴더구조
+```
 📦app
  ┣ 📂backup
  ┣ 📂components
@@ -40,6 +45,7 @@ Codeit 단기심화 과제 to-do
  ┣ 📜layout.tsx
  ┣ 📜page.module.css
  ┗ 📜page.tsx
+```
 
 
 ## 디자인
