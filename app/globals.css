@@ -514,4 +514,7 @@ html {
     .detail_btn button {
         width: 48%;
     }
+    .checklist_detail .ckd_ck {
+        min-width: 10%;
+    }
 }
